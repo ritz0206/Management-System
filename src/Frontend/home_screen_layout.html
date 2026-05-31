@@ -1,0 +1,181 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .screen { background: #ffffff; border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid #C8E6CC; }
+  .topbar { background: #2A6A35; padding: 20px 24px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .greeting { font-size: 13px; color: #A8D8AE; font-weight: 400; }
+  .name { font-size: 20px; font-weight: 500; color: #ffffff; margin-top: 2px; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: #7DC48A; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; color: #173317; }
+  .content { padding: 20px 24px; display: flex; flex-direction: column; gap: 20px; background: #ffffff; }
+  .section-label { font-size: 11px; font-weight: 500; color: #6A9970; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .ai-card { background: #EDFAEF; border: 0.5px solid #A8D8AE; border-radius: var(--border-radius-lg); padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .ai-header { display: flex; align-items: center; gap: 10px; }
+  .ai-dot { width: 8px; height: 8px; border-radius: 50%; background: #3A8A4A; }
+  .ai-title { font-size: 13px; font-weight: 500; color: #1A3320; }
+  .ai-body { font-size: 13px; color: #3A5C40; line-height: 1.6; }
+  .ai-actions { display: flex; gap: 8px; }
+  .btn-approve { background: #2A6A35; color: #ffffff; border: none; border-radius: 20px; padding: 7px 16px; font-size: 12px; font-weight: 500; cursor: pointer; font-family: var(--font-sans); }
+  .btn-dismiss { background: transparent; color: #6A9970; border: 0.5px solid #A8D8AE; border-radius: 20px; padding: 7px 16px; font-size: 12px; cursor: pointer; font-family: var(--font-sans); }
+  .modules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .module-card { background: #ffffff; border: 0.5px solid #C8E6CC; border-radius: var(--border-radius-lg); padding: 16px; cursor: pointer; transition: border-color 0.15s; }
+  .module-card:hover { border-color: #3A8A4A; }
+  .module-icon { font-size: 20px; color: #3A8A4A; margin-bottom: 10px; }
+  .module-name { font-size: 13px; font-weight: 500; color: #1A3320; }
+  .module-sub { font-size: 12px; color: #6A9970; margin-top: 3px; }
+  .module-badge { display: inline-block; margin-top: 8px; font-size: 11px; background: #D4EFDA; color: #2A6A35; padding: 3px 8px; border-radius: 10px; }
+  .module-badge.planned { background: #F0F0F0; color: #888; }
+  .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .stat-card { background: #2A6A35; border-radius: var(--border-radius-md); padding: 14px 12px; }
+  .stat-val { font-size: 20px; font-weight: 500; color: #ffffff; }
+  .stat-lbl { font-size: 11px; color: #A8D8AE; margin-top: 3px; }
+  .recent-list { display: flex; flex-direction: column; background: #ffffff; border: 0.5px solid #C8E6CC; border-radius: var(--border-radius-lg); overflow: hidden; }
+  .recent-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 0.5px solid #E8F5EA; }
+  .recent-item:last-child { border-bottom: none; }
+  .recent-left { display: flex; align-items: center; gap: 10px; }
+  .recent-icon { width: 32px; height: 32px; border-radius: 8px; background: #D4EFDA; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #3A8A4A; }
+  .recent-name { font-size: 13px; font-weight: 500; color: #1A3320; }
+  .recent-date { font-size: 11px; color: #6A9970; margin-top: 1px; }
+  .recent-amt { font-size: 13px; font-weight: 500; color: #2A6A35; }
+  .navbar { display: flex; justify-content: space-around; padding: 12px 0 16px; border-top: 0.5px solid #C8E6CC; background: #2A6A35; }
+  .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: #A8D8AE; cursor: pointer; }
+  .nav-item.active { color: #ffffff; }
+  .nav-item i { font-size: 20px; }
+</style>
+
+<h2 class="sr-only">Management System home screen with white background and green header, footer, and accent elements</h2>
+
+<div style="padding: 1rem 0; max-width: 390px; margin: 0 auto;">
+  <div class="screen">
+
+    <div class="topbar">
+      <div>
+        <div class="greeting">Good morning,</div>
+        <div class="name">Priya 👋</div>
+      </div>
+      <div class="avatar">PS</div>
+    </div>
+
+    <div class="content">
+
+      <div>
+        <div class="section-label">AI suggestion</div>
+        <div class="ai-card">
+          <div class="ai-header">
+            <div class="ai-dot"></div>
+            <div class="ai-title">Looks like you're running low</div>
+          </div>
+          <div class="ai-body">Based on your purchase history, milk and eggs are likely due for restocking. I've drafted a DMart list for <strong style="color:#1A3320;">₹380</strong>.</div>
+          <div class="ai-actions">
+            <button class="btn-approve"><i class="ti ti-check" aria-hidden="true"></i> Approve</button>
+            <button class="btn-dismiss">Dismiss</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Modules</div>
+        <div class="modules-grid">
+          <div class="module-card">
+            <div class="module-icon"><i class="ti ti-shopping-cart" aria-hidden="true"></i></div>
+            <div class="module-name">Grocery</div>
+            <div class="module-sub">12 items tracked</div>
+            <div class="module-badge">Active</div>
+          </div>
+          <div class="module-card" style="opacity:0.5;">
+            <div class="module-icon"><i class="ti ti-chart-pie" aria-hidden="true"></i></div>
+            <div class="module-name">Finance</div>
+            <div class="module-sub">Coming soon</div>
+            <div class="module-badge planned">Planned</div>
+          </div>
+          <div class="module-card" style="opacity:0.5;">
+            <div class="module-icon"><i class="ti ti-heart-rate-monitor" aria-hidden="true"></i></div>
+            <div class="module-name">Health</div>
+            <div class="module-sub">Coming soon</div>
+            <div class="module-badge planned">Planned</div>
+          </div>
+          <div class="module-card" style="opacity:0.5;">
+            <div class="module-icon"><i class="ti ti-file-description" aria-hidden="true"></i></div>
+            <div class="module-name">Documents</div>
+            <div class="module-sub">Coming soon</div>
+            <div class="module-badge planned">Planned</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">This month</div>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-val">₹2,140</div>
+            <div class="stat-lbl">Spent on groceries</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">8</div>
+            <div class="stat-lbl">Orders placed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">3</div>
+            <div class="stat-lbl">AI approvals</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Recent activity</div>
+        <div class="recent-list">
+          <div class="recent-item">
+            <div class="recent-left">
+              <div class="recent-icon"><i class="ti ti-shopping-bag" aria-hidden="true"></i></div>
+              <div>
+                <div class="recent-name">DMart order</div>
+                <div class="recent-date">Yesterday, 6:30 PM</div>
+              </div>
+            </div>
+            <div class="recent-amt">₹540</div>
+          </div>
+          <div class="recent-item">
+            <div class="recent-left">
+              <div class="recent-icon"><i class="ti ti-robot" aria-hidden="true"></i></div>
+              <div>
+                <div class="recent-name">AI drafted list</div>
+                <div class="recent-date">2 days ago</div>
+              </div>
+            </div>
+            <div class="recent-amt" style="color:#6A9970; font-weight:400;">Approved</div>
+          </div>
+          <div class="recent-item">
+            <div class="recent-left">
+              <div class="recent-icon"><i class="ti ti-shopping-bag" aria-hidden="true"></i></div>
+              <div>
+                <div class="recent-name">DMart order</div>
+                <div class="recent-date">5 days ago</div>
+              </div>
+            </div>
+            <div class="recent-amt">₹310</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="navbar">
+      <div class="nav-item active">
+        <i class="ti ti-home" aria-hidden="true"></i>
+        <span>Home</span>
+      </div>
+      <div class="nav-item">
+        <i class="ti ti-shopping-cart" aria-hidden="true"></i>
+        <span>Grocery</span>
+      </div>
+      <div class="nav-item">
+        <i class="ti ti-bell" aria-hidden="true"></i>
+        <span>Alerts</span>
+      </div>
+      <div class="nav-item">
+        <i class="ti ti-user" aria-hidden="true"></i>
+        <span>Profile</span>
+      </div>
+    </div>
+
+  </div>
+</div>

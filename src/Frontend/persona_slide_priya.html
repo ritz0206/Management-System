@@ -1,0 +1,105 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .slide { background: #ffffff; border: 0.5px solid #C8E6CC; border-radius: var(--border-radius-lg); overflow: hidden; font-family: var(--font-sans); }
+  .slide-header { background: #2A6A35; padding: 24px 32px; }
+  .slide-label { font-size: 11px; font-weight: 500; color: #A8D8AE; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .top { display: flex; gap: 20px; align-items: center; }
+  .avatar { width: 64px; height: 64px; border-radius: 50%; background: #7DC48A; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 500; color: #173317; flex-shrink: 0; }
+  .bio h2 { font-size: 22px; font-weight: 500; color: #ffffff; }
+  .bio .tagline { font-size: 13px; color: #A8D8AE; margin-top: 4px; font-style: italic; line-height: 1.5; }
+  .meta { display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+  .meta-item { font-size: 12px; color: #A8D8AE; display: flex; align-items: center; gap: 5px; }
+  .meta-item i { font-size: 13px; color: #7DC48A; }
+  .slide-body { padding: 28px 32px; display: flex; flex-direction: column; gap: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .block-title { font-size: 11px; font-weight: 500; color: #6A9970; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag { font-size: 12px; background: #D4EFDA; color: #1A5A28; padding: 4px 11px; border-radius: 20px; }
+  .tag.pain { background: #FDECEA; color: #9B3A2A; }
+  .tag.goal { background: #E8F5EA; color: #1A6A2A; }
+  .quote-box { background: #F4FAF5; border-left: 3px solid #3A8A4A; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 14px 16px; }
+  .quote-text { font-size: 13px; color: #2A5C35; line-height: 1.7; font-style: italic; }
+  .quote-attr { font-size: 11px; color: #6A9970; margin-top: 6px; }
+  .full-block { grid-column: 1 / -1; }
+</style>
+
+<h2 class="sr-only">User persona slide for Management System — Priya Sharma, urban professional aged 27, white background with green header</h2>
+
+<div style="padding: 1rem 0;">
+<div class="slide">
+
+  <div class="slide-header">
+    <div class="slide-label">User persona — primary</div>
+    <div class="top">
+      <div class="avatar">PS</div>
+      <div class="bio">
+        <h2>Priya Sharma</h2>
+        <div class="tagline">"I want my life to run itself so I can focus on what actually matters."</div>
+        <div class="meta">
+          <div class="meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> Pune, India</div>
+          <div class="meta-item"><i class="ti ti-briefcase" aria-hidden="true"></i> Product manager, 27</div>
+          <div class="meta-item"><i class="ti ti-home" aria-hidden="true"></i> Lives alone</div>
+          <div class="meta-item"><i class="ti ti-device-mobile" aria-hidden="true"></i> Tech-comfortable</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-body">
+    <div class="grid">
+
+      <div>
+        <div class="block-title">Day-to-day reality</div>
+        <div class="tag-list">
+          <div class="tag">Long work hours</div>
+          <div class="tag">Orders groceries weekly</div>
+          <div class="tag">Tracks expenses loosely</div>
+          <div class="tag">Forgets to restock basics</div>
+          <div class="tag">Relies on DMart / Blinkit</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-title">Goals</div>
+        <div class="tag-list">
+          <div class="tag goal">Never run out of essentials</div>
+          <div class="tag goal">Spend within a monthly budget</div>
+          <div class="tag goal">Reduce decision fatigue</div>
+          <div class="tag goal">One place for all life data</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-title">Pain points</div>
+        <div class="tag-list">
+          <div class="tag pain">Reruns the same grocery list mentally</div>
+          <div class="tag pain">No visibility on monthly spend</div>
+          <div class="tag pain">Too many apps, no single view</div>
+          <div class="tag pain">Hates surprise "out of stock" moments</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="block-title">Relationship with AI</div>
+        <div class="tag-list">
+          <div class="tag">Trusts suggestions, not blind actions</div>
+          <div class="tag">Wants to approve before anything executes</div>
+          <div class="tag">Values explainability</div>
+          <div class="tag">Already uses ChatGPT casually</div>
+        </div>
+      </div>
+
+      <div class="full-block">
+        <div class="block-title">In her own words</div>
+        <div class="quote-box">
+          <div class="quote-text">"I don't need the app to think for me — I just need it to do the boring thinking so I can say yes or no. Give me the draft, I'll approve it."</div>
+          <div class="quote-attr">— Priya, on the human-in-the-loop approval model</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
