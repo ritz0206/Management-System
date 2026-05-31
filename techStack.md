@@ -52,15 +52,6 @@ Microservices introduce network boundaries, separate deployments, and distribute
 
 ### RAG vs Agentic AI
 
-The system originally planned a RAG pipeline backed by `pgvector`. This has been dropped until the following question is resolved:
-
-**Does this system need RAG, or is Agentic AI with direct tool calls sufficient?**
-
-- **RAG** makes sense if the system needs to retrieve from large, unstructured data — e.g. searching through years of receipts, product descriptions, or documents in natural language.
-- **Agentic AI** with direct tool calls may be sufficient if the data is structured and queryable — e.g. the agent calls `fetchPurchaseHistory()` or `checkInventory()` and the LLM reasons over the returned data directly.
-
-For a grocery management system backed by a relational PostgreSQL database, structured tool calls may cover all retrieval needs without a vector pipeline at all. This decision must be made before reintroducing `pgvector` or any embedding infrastructure.
-
 ---
 
 ### LLM Runtime (Local vs Claude via Cowork)
