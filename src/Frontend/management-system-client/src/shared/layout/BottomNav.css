@@ -1,0 +1,41 @@
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #2a6a35;
+
+  padding: 18px 0;
+
+  border-radius: 0 0 16px 16px;
+
+  bottom: 0px;
+}
+
+.nav-item,
+.active-nav-item {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.nav-item {
+  color: #b9dcbf;
+}
+
+.active-nav-item {
+  color: white;
+  font-weight: 600;
+}
+
+.nav-item svg,
+.active-nav-item svg {
+  font-size: 24px;
+}

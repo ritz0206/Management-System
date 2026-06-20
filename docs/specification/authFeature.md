@@ -1,4 +1,5 @@
 ### Sprint 1 — Authentication
+
 Goal
 A user can:
 Sign up
@@ -27,7 +28,6 @@ Password is encrypted using BCrypt
 User record saved in PostgreSQL
 Success response returned
 
-
 ### Story 2: User Login
 
 As a user
@@ -54,63 +54,84 @@ Unauthorized returns 401
 ---
 
 ### Database Design
+
 users
 CREATE TABLE users (
-    id UUID PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP NOT NULL
+id UUID PRIMARY KEY,
+name VARCHAR(100) NOT NULL,
+email VARCHAR(255) UNIQUE NOT NULL,
+password VARCHAR(255) NOT NULL,
+created_at TIMESTAMP NOT NULL
 );
 
 ---
 
 ### Backend Structure
+
 backend/
+Backend folder structure: Authentication module
 
-src/main/java/com/lifeos
+backend/
+├── src/main/java/com/managementsystem/
+│ ├── auth/
+│ │ ├── controller/
+│ │ │ └── AuthController.java # POST /register, /login, /refresh, /logout
+│ │ │
+│ │ ├── service/
+│ │ │ ├── AuthService.java # orchestrates register/login flow
+│ │ │ ├── JwtService.java # token generation, validation, parsing
+│ │ │ └── CustomUserDetailsService.java # bridges User entity → Spring Security
+│ │ │
+│ │ ├── repository/
+│ │ │ ├── UserRepository.java
+│ │ │ └── RefreshTokenRepository.java
+│ │ │
+│ │ ├── model/
+│ │ │ ├── User.java
+│ │ │ ├── Role.java # enum: USER, ADMIN
+│ │ │ └── RefreshToken.java
+│ │ │
+│ │ ├── dto/
+│ │ │ ├── RegisterRequest.java
+│ │ │ ├── LoginRequest.java
+│ │ │ ├── AuthResponse.java # accessToken, refreshToken, expiresIn
+│ │ │ └── RefreshTokenRequest.java
+│ │ │
+│ │ ├── security/
+│ │ │ ├── JwtAuthFilter.java # OncePerRequestFilter — runs on every request
+│ │ │ └── JwtAuthEntryPoint.java # handles unauthorized (401) responses
+│ │ │
+│ │ └── exception/
+│ │ ├── InvalidCredentialsException.java
+│ │ ├── TokenExpiredException.java
+│ │ └── UserAlreadyExistsException.java
 
-├── auth
-│   ├── controller
-│   │   └── AuthController.java
-│   │
-│   ├── service
-│   │   └── AuthService.java
-│   │
-│   ├── repository
-│   │   └── UserRepository.java
-│   │
-│   ├── entity
-│   │   └── User.java
-│   │
-│   ├── dto
-│   │   ├── LoginRequest.java
-│   │   ├── SignupRequest.java
-│   │   ├── AuthResponse.java
-│   │
-│   └── security
-│       ├── JwtService.java
-│       ├── JwtFilter.java
-│       └── SecurityConfig.java
-│
-└── common
+auth/ is a single domain package — merges what would otherwise be a separate user/ module, since user management and authentication change together at this stage. Will split into profile/ only when profile-specific features (avatar, preferences) grow large enough to justify it.
+Follows the same MVC layering as grocery/: controller/ → service/ → repository/ → model/. Controller handles request/response only; all business logic lives in service; repository is pure persistence.
+Key isolation decisions:
+
+JwtService owns all token logic (signing key, algorithm, expiry) — the only file that changes if the signing algorithm changes (e.g. HS256 → RS256).
+CustomUserDetailsService is the sole bridge between the User entity and Spring Security's UserDetails — Spring Security never touches User directly.
+RefreshToken is persisted separately from the access token, since access tokens are stateless JWTs (never stored) while refresh tokens need server-side rotation/revocation support.
+DTOs (AuthResponse, etc.) are mandatory at the API boundary — User entity is never serialized directly, since it carries the password hash.
 
 ### REST APIs
+
 Signup
 POST /api/auth/signup
 
 Request
 
 {
-  "name": "John",
-  "email": "john@gmail.com",
-  "password": "password123"
+"name": "John",
+"email": "john@gmail.com",
+"password": "password123"
 }
 
 Response
 
 {
-  "message": "User registered successfully"
+"message": "User registered successfully"
 }
 Login
 POST /api/auth/login
@@ -118,39 +139,40 @@ POST /api/auth/login
 Request
 
 {
-  "email": "john@gmail.com",
-  "password": "password123"
+"email": "john@gmail.com",
+"password": "password123"
 }
 
 Response
 
 {
-  "token": "jwt-token"
+"token": "jwt-token"
 }
 
 ---
 
 ### React Structure
+
 frontend/
 
 src
 
 ├── features
 │
-│   └── auth
-│       ├── pages
-│       │   ├── LoginPage.tsx
-│       │   └── SignupPage.tsx
-│       │
-│       ├── components
-│       │   ├── LoginForm.tsx
-│       │   └── SignupForm.tsx
-│       │
-│       ├── services
-│       │   └── authApi.ts
-│       │
-│       └── hooks
-│           └── useAuth.ts
+│ └── auth
+│ ├── pages
+│ │ ├── LoginPage.tsx
+│ │ └── SignupPage.tsx
+│ │
+│ ├── components
+│ │ ├── LoginForm.tsx
+│ │ └── SignupForm.tsx
+│ │
+│ ├── services
+│ │ └── authApi.ts
+│ │
+│ └── hooks
+│ └── useAuth.ts
 │
 ├── routes
 │
@@ -161,16 +183,16 @@ src
 ### Login Page Components
 
 LoginPage
- └── LoginForm
-      ├── EmailInput
-      ├── PasswordInput
-      └── LoginButton
+└── LoginForm
+├── EmailInput
+├── PasswordInput
+└── LoginButton
 
 ### Signup Page Components
 
 SignupPage
- └── SignupForm
-      ├── NameInput
-      ├── EmailInput
-      ├── PasswordInput
-      └── SignupButton
+└── SignupForm
+├── NameInput
+├── EmailInput
+├── PasswordInput
+└── SignupButton
