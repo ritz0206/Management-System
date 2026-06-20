@@ -42,25 +42,12 @@ The Modular Monolith pattern is a natural fit for Spring Boot's package and Bean
 
 ---
 
+### Ollama
+
+---
+
 ### Modular Monolith over Microservices
 
 Microservices introduce network boundaries, separate deployments, and distributed system complexity — none of which is justified at this scale for a personal Life OS. A Modular Monolith gives clean domain separation (each module is isolated) while remaining a single deployable unit. When/if a module like Finance grows large enough to warrant independence, it can be extracted later without rewriting the core.
 
 ---
-
-## Pending Decisions
-
-### RAG vs Agentic AI
-
----
-
-### LLM Runtime (Local vs Claude via Cowork)
-
-Closely related to the RAG decision above. Ollama with Llama 3 / Mistral was originally included for privacy, zero API cost, and offline capability.
-
-**The open question:** once the RAG vs Agentic AI decision is resolved, the role of a local LLM becomes clearer.
-
-- If the system goes **Agentic AI with Claude via Cowork** as the reasoning layer, a local LLM runtime is redundant.
-- If the system requires an **on-device or self-hosted reasoning layer** — for privacy, cost, or offline reasons — Ollama remains a valid option.
-
-This decision should be made together with the RAG vs Agentic AI question — they are two sides of the same architectural choice.
