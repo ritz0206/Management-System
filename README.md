@@ -8,13 +8,13 @@
 
 Modern life generates a constant stream of data — groceries, finances, investments, health, documents, vehicles — scattered across apps, receipts, and memory. **Management-System** brings all of it into one place, turning raw life data into clear insights and autonomous action.
 
-The goal is a unified platform where you can analyse trends, visualise patterns, and make informed decisions about anything specific to your own life — powered by an AI layer that grows smarter the more you use it.
+The goal is a unified platform where you can analyse trends, visualise patterns, and make informed decisions about anything specific to your own life.
 
 ---
 
 ## Current Focus: Grocery Management
 
-The first module tackles everyday grocery management: tracking purchases, predicting what you'll need, building shopping lists, and integrating with delivery platforms like DMart — all with your approval before anything is actioned.
+The first module tackles everyday grocery management: tracking purchases, predicting what you'll need, building shopping lists and managing grocery expenses.
 
 This module serves as the blueprint for every domain that follows.
 
