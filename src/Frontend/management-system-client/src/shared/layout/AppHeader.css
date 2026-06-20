@@ -1,0 +1,35 @@
+.app-header {
+  background-color: #2a6a35;
+
+  border-radius: clamp(12px, 2vw, 16px);
+
+  margin: clamp(8px, 3vw, 16px);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px, 55vw, 974px);
+  align-items: center;
+
+  padding: clamp(16px, 4vw, 28px) clamp(18px, 5vw, 30px);
+}
+
+.header-text p {
+  margin: 0;
+
+  color: #d4efda;
+
+  font-size: clamp(12px, 2vw, 16px);
+}
+
+.header-text h2 {
+  margin-top: clamp(4px, 1vw, 8px);
+  margin-bottom: 0;
+
+  color: white;
+
+  font-size: clamp(28px, 6vw, 42px);
+
+  font-weight: 600;
+}

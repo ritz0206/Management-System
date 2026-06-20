@@ -1,11 +1,14 @@
-import {Routes, Route} from "react-router-dom";
-import HomePage from "../features/home/pages";
+import { Route } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
+import HomePage from "../features/home/pages/HomePage";
 
 export const homeRoutes = [
-  <Route path="/home" element={
-  <ProtectedRoute>
-    <HomePage />
-  </ProtectedRoute>
-  }
-/>
+  <Route
+    path="/home"
+    element={
+      <ProtectedRoute>
+        <HomePage />
+      </ProtectedRoute>
+    }
+  />,
 ];
