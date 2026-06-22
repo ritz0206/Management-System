@@ -1,5 +1,6 @@
 package management_system_server.features.auth.model;
 
-public class Role {
-    
+public enum Role {
+    USER,
+    ADMIN
 }

@@ -1,4 +1,4 @@
-import { loginUser, signupUser } from "../services/authApi";
+import { loginUser, signupUser } from "../services/authApi.js";
 
 export function useAuth() {
   const handleLogin = async (email, password) => {
@@ -23,7 +23,7 @@ export function useAuth() {
 
   return {
     handleLogin,
-    handleLogin,
+    handleSignup,
     handleLogout,
     isAuthenticated,
   };

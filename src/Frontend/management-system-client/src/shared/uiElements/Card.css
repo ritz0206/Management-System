@@ -1,0 +1,19 @@
+.card {
+  background-color: var(--color-surface-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  box-shadow: 0 2px 12px var(--color-shadow);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px var(--color-shadow-md);
+  transform: translateY(-1px);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: var(--space-xl);
+  }
+}
