@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import "./LoginForm.css";
 
 export default function LoginForm() {
   const { handleLogin, isAuthenticated } = useAuth();
@@ -24,36 +25,36 @@ export default function LoginForm() {
       await handleLogin(formData.email, formData.password);
       navigate("/home");
     } catch (err) {
-      setError("Invalid email or password");
+      setError(err.response?.data?.message || "Invalid email or password");
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="login-form">
-      <div>
+      <div className="login-form__field">
         <label>Email</label>
         <input
           type="email"
           name="email"
-          placeholder="Enter email"
+          placeholder="Enter your email"
           value={formData.email}
           onChange={handleChange}
           required
         />
       </div>
-      <div>
+      <div className="login-form__field">
         <label>Password</label>
         <input
           type="password"
           name="password"
-          placeholder="Enter password"
+          placeholder="Enter your password"
           value={formData.password}
           onChange={handleChange}
           required
         />
       </div>
-      {error && <p>{error}</p>}
-      <button type="submit">Login</button>
+      {error && <p className="login-form__error">{error}</p>}
+      <button type="submit" className="login-form__submit">Login</button>
     </form>
   );
 }

@@ -1,4 +1,4 @@
-import Avatar from "../ui/Avatar";
+import Avatar from "../uiElements/Avatar";
 import "./AppHeader.css";
 function AppHeader({ greeting, name }) {
   return (

@@ -1,0 +1,83 @@
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-surface-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: 0 4px 24px var(--color-shadow-md);
+}
+
+.login-form__field {
+  margin-bottom: var(--space-lg);
+}
+
+.login-form__field label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.login-form__field input {
+  width: 100%;
+  padding: var(--space-md) var(--space-base);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-lighter);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.login-form__field input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.login-form__field input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(58, 138, 74, 0.15);
+  background-color: var(--color-surface-white);
+}
+
+.login-form__error {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  background-color: var(--color-error-bg);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-base);
+}
+
+.login-form__submit {
+  width: 100%;
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.login-form__submit:hover {
+  background-color: var(--color-accent);
+}
+
+.login-form__submit:active {
+  transform: scale(0.98);
+}
+
+.login-form__submit:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .login-form {
+    padding: var(--space-3xl);
+  }
+}
