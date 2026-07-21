@@ -1,4 +1,4 @@
-Persona — AI Context Summary
+Persona
 Name: Priya Sharma
 Role: Urban professional, product manager, 27, lives alone in Pune.
 Archetype: A busy, tech-comfortable person who generates repetitive life-admin tasks (grocery restocking, expense tracking) but lacks a unified system to manage them. She is not an early adopter — she uses technology when it removes friction, not for its own sake.
